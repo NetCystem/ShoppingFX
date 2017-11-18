@@ -45,7 +45,6 @@ public class Controller {
     @FXML
     private ChoiceBox citybox;
 
-    private String string;
 
     ObservableList<String> countryList=FXCollections.observableArrayList("sdasds", "asdsada", "adfadff");
 
