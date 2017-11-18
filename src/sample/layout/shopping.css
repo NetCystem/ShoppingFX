@@ -1,0 +1,63 @@
+.split-pane{
+
+}
+
+
+.bluepanestyle{
+    -fx-background-color:#4da6e7;
+}
+
+.whitepanestyle{
+    -fx-background-color: #ffffff;
+}
+
+
+.tear-drop{
+    -fx-background-color: #4da6e7;
+}
+
+.continue-btn{
+    -fx-background-color: #4da6e7;
+    -fx-background-radius: 30;
+}
+
+.reset-all{
+    -fx-background-color: #ffffff;
+}
+
+.country-chs{
+    -fx-background-color: #ffffff;
+
+}
+
+.state-chs{
+    -fx-background-color: #ffffff;
+}
+
+.city-chs{
+    -fx-background-color: #ffffff;
+}
+
+.first-name{
+    -fx-background-color: #ffffff;
+}
+
+.last-name{
+    -fx-background-color: #ffffff;
+}
+
+.email-id{
+    -fx-background-color: #ffffff;
+}
+
+.user-id{
+    -fx-background-color: #ffffff;
+}
+
+.phone-number{
+    -fx-background-color: #ffffff;
+}
+.reference-code{
+    -fx-background-color: #ffffff;
+}
+
