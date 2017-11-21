@@ -43,7 +43,7 @@ public class Controller {
     @FXML
     private CheckBox emailcheck;
 
-    private Models models = new Models();
+    //private Models models = new Models();
 
     ObservableList<String> countryList = FXCollections.observableArrayList("USA", "UK", "India");
     ObservableList<String> stateList = FXCollections.observableArrayList("Florida", "Chetser", "Sagha");
@@ -62,10 +62,10 @@ public class Controller {
 
     public void continueClick() {
         continuebtn.setOnMouseClicked((MouseEvent event) -> {
-            if (models.check(firstname) && models.check(lastname) && models.checkEmail(emailid)
-                    && models.check(userid) && models.checkPhone(phonenumber) &&
-                    models.check(referencecode) && models.isSelected(countrybox)
-                    && models.isSelected(statebox) && models.isSelected(citybox)) {
+            if (Models.check(firstname) && Models.check(lastname) && Models.checkEmail(emailid)
+                    && Models.check(userid) && Models.checkPhone(phonenumber) &&
+                    Models.check(referencecode) && Models.isSelected(countrybox)
+                    && Models.isSelected(statebox) && Models.isSelected(citybox)) {
                 try {
                     FXMLLoader loader = new FXMLLoader(getClass().getResource(FXMLPaths.PAYMENT_LAYOUT));
                     Parent root = loader.load();
@@ -90,15 +90,15 @@ public class Controller {
 
     public void resetClick(){
         reset.setOnAction(event -> {
-            models.clear(firstname);
-            models.clear(lastname);
-            models.clear(emailid);
-            models.clear(userid);
-            models.clear(phonenumber);
-            models.clear(referencecode);
-            models.clearBox(countrybox);
-            models.clearBox(statebox);
-            models.clearBox(citybox);
+            Models.clear(firstname);
+            Models.clear(lastname);
+            Models.clear(emailid);
+            Models.clear(userid);
+            Models.clear(phonenumber);
+            Models.clear(referencecode);
+            Models.clearBox(countrybox);
+            Models.clearBox(statebox);
+            Models.clearBox(citybox);
         });
     }
 

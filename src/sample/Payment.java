@@ -26,14 +26,14 @@ public class Payment {
     @FXML
     private TextField cardnumber;
 
-    private Models models = new Models();
+
 
     public void initialize() {
-        cvc.addEventFilter(KeyEvent.KEY_TYPED, models.maxLength(3));
-        models.dateFormatting(datepicker);
+        cvc.addEventFilter(KeyEvent.KEY_TYPED, Models.maxLength(3));
+        Models.dateFormatting(datepicker);
 
         pay.setOnAction(event -> {
-            if (models.checkCVC(cvc) && models.dateCheck(datepicker) && models.check(cardholder) && models.checkNumber(cardnumber)) {
+            if (Models.checkCVC(cvc) && Models.dateCheck(datepicker) && Models.check(cardholder) && Models.checkNumber(cardnumber)) {
                 try {
                     FXMLLoader loader = new FXMLLoader(getClass().getResource(FXMLPaths.SAMPLE_LAYOUT));
                     Parent root = loader.load();

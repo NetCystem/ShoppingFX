@@ -13,11 +13,8 @@ import java.time.format.DateTimeFormatter;
 
 public class Models {
 
-    public Models() {
 
-    }
-
-    public boolean check(TextField textField) {
+    public static boolean check(TextField textField) {
         return textField.getText().matches("[A-Z a-z]+");
     }
 
@@ -33,27 +30,27 @@ public class Models {
         return !choiceBox.getSelectionModel().isEmpty();
     }
 
-    public boolean checkNumber(TextField textField) {
+    public static boolean checkNumber(TextField textField) {
         return textField.getText().matches("[0-9]+");
     }
 
-    public void clear(TextField textField) {
+    public static void clear(TextField textField) {
         if (!textField.getText().isEmpty())
             textField.clear();
     }
 
-    public void clearBox(ChoiceBox choiceBox) {
+    public static void clearBox(ChoiceBox choiceBox) {
         if (!choiceBox.getSelectionModel().isEmpty())
             choiceBox.getSelectionModel().clearSelection();
     }
 
-    public boolean checkCVC(PasswordField passwordField) {
+    public static boolean checkCVC(PasswordField passwordField) {
         return passwordField.getText().length() < 4 && passwordField.getText().matches("[0-9]+");
     }
 
 
     //Date Picker date formatting
-    public void dateFormatting(DatePicker datePicker) {
+    public static void dateFormatting(DatePicker datePicker) {
         datePicker.setConverter(new StringConverter<LocalDate>() {
             private DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("MM/yy");
 
@@ -75,12 +72,12 @@ public class Models {
     }
 
     //Date picker is checked checking
-    public boolean dateCheck(DatePicker datePicker) {
+    public static boolean dateCheck(DatePicker datePicker) {
         return datePicker.getValue() != null;
     }
 
     //CVC  limit characters
-    public EventHandler<KeyEvent> maxLength(final Integer i) {
+    public static EventHandler<KeyEvent> maxLength(final Integer i) {
         return arg0 -> {
             PasswordField pf = (PasswordField) arg0.getSource();
             if (pf.getText().length() >= i) {
