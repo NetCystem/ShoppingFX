@@ -10,7 +10,8 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource(FXMLPaths.SAMPLE_LAYOUT));
+        //Parent root = FXMLLoader.load(getClass().getResource(FXMLPaths.SAMPLE_LAYOUT));
+        Parent root = FXMLLoader.load(getClass().getResource(FXMLPaths.PAYMENT_LAYOUT));
         primaryStage.setTitle("Shopping");
         primaryStage.setScene(new Scene(root, 627, 397));
         primaryStage.show();

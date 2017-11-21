@@ -1,14 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Payment">
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<AnchorPane fx:id="payment" prefHeight="400.0" prefWidth="600.0" styleClass="anch-pane-bgr"
+            stylesheets="@layout/shopping.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="sample.Payment">
    <children>
-      <Button fx:id="cancel" layoutX="271.0" layoutY="200.0" mnemonicParsing="false" text="Cancel" />
-      <ChoiceBox fx:id="choicebox" layoutX="23.0" layoutY="58.0" prefWidth="150.0" />
+       <Pane layoutX="95.0" layoutY="68.0" prefHeight="255.0" prefWidth="417.0" styleClass="pane-bgr"
+             stylesheets="@layout/shopping.css">
+           <children>
+
+               <Button fx:id="pay" layoutX="263.0" layoutY="180.0" mnemonicParsing="false" prefHeight="31.0"
+                       prefWidth="110.0" styleClass="pay-btn" stylesheets="@layout/shopping.css" text="PAY"/>
+               <TextField fx:id="cardnumber" layoutX="61.0" layoutY="56.0"/>
+               <TextField fx:id="cardholder" layoutX="61.0" layoutY="112.0"/>
+               <PasswordField fx:id="cvc" layoutX="285.0" layoutY="112.0" prefHeight="27.0" prefWidth="82.0"
+                              styleClass="cvc" stylesheets="@layout/shopping.css"/>
+               <DatePicker fx:id="datepicker" layoutX="285.0" layoutY="56.0" prefHeight="27.0" prefWidth="82.0"/>
+               <ImageView fitHeight="41.0" fitWidth="110.0" layoutX="67.0" layoutY="173.0" pickOnBounds="true"
+                          preserveRatio="true">
+                   <image>
+                       <Image url="@images/visa2.png"/>
+                   </image>
+               </ImageView>
+               <Label layoutX="62.0" layoutY="45.0" text="CARD NUMBER">
+                   <font>
+                       <Font name="System Bold" size="9.0"/>
+                   </font>
+               </Label>
+               <Label layoutX="62.0" layoutY="101.0" text="CARDHOLDER NAME">
+                   <font>
+                       <Font name="System Bold" size="9.0"/>
+                   </font>
+               </Label>
+               <Label layoutX="286.0" layoutY="45.0" text="VALID THRU">
+                   <font>
+                       <Font name="System Bold" size="9.0"/>
+                   </font>
+               </Label>
+               <Label layoutX="286.0" layoutY="101.0" text="CVC">
+                   <font>
+                       <Font name="System Bold" size="9.0"/>
+                   </font>
+               </Label>
+           </children>
+       </Pane>
    </children>
 </AnchorPane>

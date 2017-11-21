@@ -61,3 +61,27 @@
     -fx-background-color: #ffffff;
 }
 
+.email-check .box {
+
+    -fx-background-color: #ffffff;
+    -fx-border-color: #ffffff;
+}
+
+.email-check:selected .mark {
+
+    -fx-background-color: #c0d413;
+}
+
+.pay-btn {
+    -fx-background-color: #295a96;
+    -fx-text-fill: #f9f9f9;
+}
+
+.anch-pane-bgr {
+    -fx-background-color: #f39e46;
+}
+
+.pane-bgr {
+    -fx-background-color: #ffffff;
+}
+

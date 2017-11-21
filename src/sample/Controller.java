@@ -2,25 +2,21 @@ package sample;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.Event;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 public class Controller {
-
 
     @FXML
     private Button continuebtn;
@@ -44,52 +40,32 @@ public class Controller {
     private ChoiceBox statebox;
     @FXML
     private ChoiceBox citybox;
+    @FXML
+    private CheckBox emailcheck;
 
+    private Models models = new Models();
 
-    ObservableList<String> countryList=FXCollections.observableArrayList("sdasds", "asdsada", "adfadff");
-
-
-    public boolean checkStringName(){
-        return firstname.getText().matches("[a-z A-Z]+");
-    }
-
-    public boolean checkStringSurName(){
-        return lastname.getText().matches("[a-z A-Z]+");
-    }
-
-    public boolean checkStringEmail(){
-        return emailid.getText().matches("[a-z A-Z]+");
-    }
-
-    public boolean checkStringUserId(){
-        return userid.getText().matches("[a-z A-Z]+");
-    }
-
-    public boolean checkPhone(){
-        return phonenumber.getText().matches("[0-9]+");
-    }
-
-    public boolean checkReferenceCode(){
-        return referencecode.getText().matches("[a-z A-Z]+");
-    }
-
+    ObservableList<String> countryList = FXCollections.observableArrayList("USA", "UK", "India");
+    ObservableList<String> stateList = FXCollections.observableArrayList("Florida", "Chetser", "Sagha");
+    ObservableList<String> cityList = FXCollections.observableArrayList("Miami", "London", "Mumbai");
 
     public void initialize() {
         continueClick();
         resetClick();
+//        checkUncheck();
 
-        countrybox = new ChoiceBox(countryList);
-
-//        countrybox.getItems().addAll("sdasd","werrr", "ertyuu");
-//        statebox.getItems().addAll("erty","www","rrrr");
-//        citybox.getItems().addAll("ggg","rty", "dssdfdsf");
+        countrybox.setItems(countryList);
+        statebox.setItems(stateList);
+        citybox.setItems(cityList);
 
     }
 
-    public void continueClick(){
+    public void continueClick() {
         continuebtn.setOnMouseClicked((MouseEvent event) -> {
-            if (checkStringName() && checkStringSurName() && checkStringEmail() && checkStringUserId() && checkPhone()
-                    && checkReferenceCode()){
+            if (models.check(firstname) && models.check(lastname) && models.checkEmail(emailid)
+                    && models.check(userid) && models.checkPhone(phonenumber) &&
+                    models.check(referencecode) && models.isSelected(countrybox)
+                    && models.isSelected(statebox) && models.isSelected(citybox)) {
                 try {
                     FXMLLoader loader = new FXMLLoader(getClass().getResource(FXMLPaths.PAYMENT_LAYOUT));
                     Parent root = loader.load();
@@ -111,24 +87,24 @@ public class Controller {
         });
     }
 
+
     public void resetClick(){
         reset.setOnAction(event -> {
-            if (!firstname.getText().isEmpty())
-                firstname.clear();
-            if (!lastname.getText().isEmpty())
-                lastname.clear();
-            if (!emailid.getText().isEmpty())
-                emailid.clear();
-            if (!userid.getText().isEmpty())
-                userid.clear();
-            if (!phonenumber.getText().isEmpty())
-                phonenumber.clear();
-            if (!referencecode.getText().isEmpty())
-                referencecode.clear();
-
-
+            models.clear(firstname);
+            models.clear(lastname);
+            models.clear(emailid);
+            models.clear(userid);
+            models.clear(phonenumber);
+            models.clear(referencecode);
+            models.clearBox(countrybox);
+            models.clearBox(statebox);
+            models.clearBox(citybox);
         });
     }
+
+//    public void checkUncheck(){
+//            emailcheck.setSelected(true);
+//    }
 
 
 //tarberutiun@ es dzevi, initialazable-i u implement eventhandleri mej
